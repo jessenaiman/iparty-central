@@ -1,0 +1,28 @@
+<% if !current_user %>
+      <div class="micromenu">
+          <%= link_to 'Sign In', new_user_session_path, { :remote => true, 'data-toggle' => 'modal', 'data-target' => '#myModal' } %>
+          |
+          <%= link_to 'Create an Account', new_user_registration_path, { :remote => true, 'data-toggle' => 'modal', 'data-target' => '#myModal' } %>
+
+          <%#= link_to 'Volunteer', new_volunteer_path, remote: true %>
+      </div>
+  <% else %>
+      <div class="micromenu">
+        <a href="#" data-dropdown="#accountoptions"><%= current_user.full_name %><span class="droparrow"></span></a>
+      </div>
+
+      <div id="accountoptions" class="dropdown dropdown-anchor-right">
+        <ul class="dropdown-menu">
+          <% if current_user.identities.count > 0 %>
+            <%= image_tag current_user.identities.first.image %>
+          <% end %>
+          <li><%= link_to 'Edit Profile', edit_user_registration_url, id: current_user.id, remote: true %></li>
+          <li><a href="#2">History</a></li>
+          <% if current_user.roles.include? 'toolkit' %>
+              <li><%= link_to 'Toolkit', toolkit_path %></li>
+          <% end %>
+          <li class="dropdown-divider"></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, remote: true %></li>
+        </ul>
+      </div>
+  <% end %>

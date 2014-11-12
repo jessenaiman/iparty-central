@@ -1,0 +1,14 @@
+console.log('attachment should open in new.js');
+vex.open({
+
+    content: '<%= j (render('form')) %>',
+
+    afterOpen: function($vexContent) {
+        //return $vexContent.append($el);
+    },
+
+    afterClose: function() {
+        return console.log('vexClose');
+    }
+
+});

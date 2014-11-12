@@ -1,0 +1,6 @@
+<% unless attachment.pdf.file.nil? %>
+  <li id='<%= attachment.id %>'>
+    <%= link_to attachment.title, attachment.pdf.url %>
+    <%= link_to "(remove)", admin_document_attachment_path(attachment.document_id, attachment), :method => :delete, :data => { :confirm => 'Are you sure?' }, remote: true  %>
+  </li>
+<% end %>

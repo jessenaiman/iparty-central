@@ -1,0 +1,38 @@
+<div class="content">
+  <div class="container">
+    <br /><br />
+         <h1><%= raw @document.headline %></h1>
+         <h2><%= raw @document.subtitle %></h2>
+			<!-- <%= image_tag @document.image_url %> -->
+               <%= raw @document.body %>
+
+            <div class="hrbreake7e6e7">&nbsp;</div>
+              
+			  <div>
+
+
+                        <p class="tiny"><%= @document.author %></p>
+                        <p class="tiny"><%= @document.reference_url %></p>
+                        <p class="tiny"><%= @document.reference_name %></p>
+                        <p class="tiny"><%= @document.attached_photo_ids %></p>
+                        <p class="tiny"><%= @document.attached_pdf_ids %></p>
+                        <p class="tiny"><%= @document.created_date %></p>
+                        <p class="tiny"><%= @document.created_ip %></p>
+                        <p class="tiny"><%= @document.document_date %></p>
+                        <p class="tiny"><%= @document.updated_time %></p>
+						
+						<div class="hrbreake7e6e7">&nbsp;</div>
+						
+
+            <% unless @document.attachments.nil? %>
+                 <% @document.attachments.each do |a| %>
+                    <% unless a.pdf.file.nil? %>
+                        <div class="<%= a.pdf.file.extension %>" >
+                            <h1><%= link_to a.title, a.pdf.url %></h1>
+                            <p><%= link_to a.description, a.pdf.url %></p>
+                        </div>
+                    <% end %>
+                 <% end %>
+            <% end %>
+  </div>
+</div>

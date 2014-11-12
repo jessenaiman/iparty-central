@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ontario Liberal Party - BETA - Kathleen Wynne - Not for Release</title>
+    <%= if @allow_google_index then raw('<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">') else raw('<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">') end %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="keywords" content="ontario Liberal Party - Kathleen Wynne, olp PLA" />
+    <meta name="description" content="The Official site of the Ontario Liberal Party" />
+
+    <meta property="og:title" content="More Support for Low-Income Families" />
+    <meta property="og:type" content="politician" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="Ontario Liberal Party" />
+    <meta property="fb:admins" content="100003812622252,686700080,552055122" />
+    <meta property="og:description" content="More Support for Low-Income Families" />
+    <%= csrf_meta_tags %>
+    <%= render partial: 'shared/header_scripts' %>
+    <%= yield :scripts_for_header %>
+  </head>
+
+    <body>
+	
+	
+	<div id="fb-root"></div>
+<div id="fb-root"></div>
+
+
+
+
+
+
+        <div id="errors"></div>
+		
+		
+		<div id="fbflyout">
+		<h4>facebook</h4>
+		</div>
+		
+		
+<script>
+
+$.fn.flyout = function(options) {
+    var el = this;
+    var edge = options.edge || 30;
+    el.css({
+        position : "absolute",
+        top : "30px",
+        left : -1 * (el.width() - edge)
+    });
+    el.click(function () {
+        $(this).animate({left : "0px"}); 
+    });
+    el.mouseleave(function () {
+        $(this).animate({left : -1 * (el.width() - edge) });
+    });
+}
+
+    $("#fbflyout").flyout({"edge" : "30"});
+
+</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	   <div style="display:none; box-shadow: 9px 9px 8px -4px #C7C7C7; padding:20px; background-color:#fff; height:100%; position:absolute; left:250px; height:100%; z-index:1001;">
+	   <h4>twitter</h4>
+	   <a class="twitter-timeline"  href="https://twitter.com/Kathleen_Wynne"  data-widget-id="443492150303420416">Tweets by @Kathleen_Wynne</a>
+       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+		
+        <div id="logpanel">
+           <div class="container">
+             <span id="micromenu_placeholder">
+                <%= render 'shared/micromenu' %>
+             </span>
+            </div>
+        </div>
+
+        <div id="logoandmenu">
+            <div class="container">
+            <div class="logo"><%= image_tag "logo-sm.png" %></div>
+
+            <%= render "shared/menu" %>
+
+            </div><!-- closes the .container encompassing the logo and the menu -->
+        </div><!-- closes #logoandmenu -->
+
+          <div class="responsiveheader">&nbsp;</div>
+
+        <!-- <div id="undermenu"> 
+                <div class="container">
+                    <div style="clear:both; width:100%; display:block;">&nbsp;</div>
+                </div>
+             </div>  -->
+        <!-- Close top container -->
+
+        <div id="pageimageholder" style="background-color:#fff;" class="<%= yield :backgroundclass %>" >
+              <div class="container">
+                <%= yield %>
+              </div>
+        </div>
+
+        <div id="footertrigger">
+            
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <%= render 'shared/sitemenu' %>
+            </div>
+        </div>
+
+       <%= render partial: 'shared/footer_scripts' %>
+
+        <%= yield :scripts_for_body %>
+
+    </body>
+</html>

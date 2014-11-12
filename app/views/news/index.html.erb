@@ -1,0 +1,20 @@
+
+        <% if @news_documents != nil && @news_documents.length > 0 %>
+                
+                <h1 class="pagetitle">Provincial News</h1>
+               
+                <% @news_documents.each do |document| %>
+                                <div class="listh1"><%= link_to raw(document.headline), '/news/' + document.id.to_s + '?l=' + @language %></div>
+                                <div class="listh2"><%= link_to raw(document.subtitle), '/news/' + document.id.to_s + '?l=' + @language %></div>
+                                <div class="detail small last" style="display:block;"><span class="posted"><%= if @language == 'FR' then 'Publié' else 'Posted' end %>:&nbsp;</span><%= raw(localized_date_str(document.document_date, @language)) %></div>
+                                <div style="display:block; clear:left; padding-bottom:3px; height:6px;">&nbsp;</div>
+                <% end %>
+                <%= paginate @news_documents %>
+        <% else %>
+                &nbsp;
+        <% end %>
+
+
+<%# pass in pageimageholder background class and main column id and submenu %>
+<% content_for :backgroundclass do %>wynne_kids<% end %>	
+<% content_for :main_id do %>main_taxable_benefits<% end %>

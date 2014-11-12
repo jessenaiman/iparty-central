@@ -1,0 +1,12 @@
+console.log('sessions.create.js.erb');
+
+<% if @user.errors.count == 0 %>
+
+    vex.close();
+    $('#micromenu_placeholder').html('<%= j render '/shared/micromenu' %>');
+
+<% else %>
+    $('form .errors').html('');
+    console.log('errors should be displayed');
+    $('form .errors').html('<%= j devise_error_messages!%>');
+<% end %>

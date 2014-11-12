@@ -1,0 +1,47 @@
+<% if current_user.identities.count > 0 %>
+    <%= image_tag current_user.identities.first.image %>
+<% else %>
+    <%= javascript_include_tag 'facebook-modal' %>
+    <%= link_to 'Connect your account to facebook', user_omniauth_authorize_path(:facebook), id: 'sign_in', class: 'popup facebook_sign_in', data: { width: 600, height: 400} %>
+<% end %>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :remote => true) do |f| %>
+
+    <%= f.input :email, required: true, autofocus: true, class: 'submittable', placeholder: 'Enter Email', label: false %>
+    <span id="user_email_validation"></span>
+    <%= f.input :first_name, placeholder: 'First Name', label: false %>
+    <%= f.input :last_name, placeholder: 'Last Name', label: false %>
+    <%= f.input :address, placeholder: 'Address', label: false %>
+    <%= f.input :postal_code, placeholder: 'Postal Code' , input_html: { onblur: 'findRiding("' + find_riding_url + '")' }, label: false %>
+    <span id='riding_box'></span>
+    <%= f.hidden_field :riding_id %>
+    <%= f.input :city, placeholder: 'City', label: false %>
+    <%= f.input :phone_number, as: :tel, :size => 30, placeholder: 'Phone Number', label: false %>
+    <%= f.input :birthday, placeholder: 'DD/MM/YYYY', :input_html => { :class => 'datepicker' , :value => @user.birthday.nil? ? Date.new : @user.birthday.strftime('%d/%m/%Y') } %>
+    <%= f.file_field :image, as: :image_preview, input_html: {preview_version: :thumb} %>
+    <%= f.hidden_field :image_cache %>
+    <%= f.button :submit, 'Update', :class => 'btn-primary' %>
+    <div id="errors"></div>
+<% end %>
+
+<% if current_user.identities.where(provider: 'facebook').exists? %>
+    <%= link_to 'facebook friends', friends_path, remote: true %>
+<% end %>
+
+<%= render 'users/shared/links' %>
+
+<%= content_for :scripts_for_body do %>
+    <script>
+        function popupCenter(url, width, height, name) {
+            var left = (screen.width/2)-(width/2);
+            var top = (screen.height/2)-(height/2);
+            return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
+        }
+
+        $("a.popup").click(function(e) {
+            vex.hide();
+            popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
+            e.stopPropagation(); return false;
+        });
+    </script>
+<% end %>

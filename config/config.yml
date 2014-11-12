@@ -1,0 +1,17 @@
+defaults: &defaults
+  roles:
+    - user
+    - admin
+    - webadmin
+    - toolkit
+    - employee
+  default_role: user
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

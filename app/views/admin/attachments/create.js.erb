@@ -1,0 +1,17 @@
+
+console.log('attachment should have been added from create.js');
+<% if @attachment.valid? %>
+    vex.close();
+    $("#attachments").append("<%= j render @attachment %>");
+    $("#document_id").val('<%= @document.id %>');
+<% else %>
+    $('.error').html('');
+    console.log('error fired');
+    <% @attachment.errors.each do |key, value| %>
+        $('#attachment_<%= key.to_s %>').after('<div class="error"><%= key.to_s + ' ' + value %></div>');
+    <% end %>
+<% end %>
+
+
+
+

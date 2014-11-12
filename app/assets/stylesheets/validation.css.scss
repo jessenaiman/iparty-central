@@ -1,0 +1,46 @@
+div.pass-container {
+  height: 30px;
+}
+
+div.pass-bar {
+  height: 11px;
+  margin-top: 2px;
+}
+
+div.pass-hint {
+  font-family: arial;
+  font-size: 11px;
+}
+
+.required input{
+  border-color: orange;
+}
+
+.has-success label, .has-success input {
+  color: green;
+  border-color: green;
+  box-shadow: none;
+}
+
+.has-success::after{
+  color: green;
+  content: "\2713";
+}
+
+.has-error::after{
+  content: "Invalid";
+}
+
+.is-loading::after{
+  background-image: url('loading.gif');
+}
+
+.has-error label, .has-error input {
+  color: red;
+  border-color: red;
+  box-shadow: none;
+}
+
+.help-block {
+  display: inline;
+}

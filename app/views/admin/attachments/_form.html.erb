@@ -1,0 +1,11 @@
+<div class="modal-body">
+    <%= simple_form_for [:admin, @document, @attachment], :html => {:multipart => true }, :remote => true do |f| %>
+      <%= f.error_notification %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :pdf, as: :file, label: t('add_file') %>
+        <%= f.hidden_field :pdf_cache %>
+        <br/>
+      <%= f.button :submit %>
+    <% end %>
+</div>

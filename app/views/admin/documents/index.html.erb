@@ -1,0 +1,18 @@
+<ul>
+  <li>
+    <%= link_to "all", "#{admin_documents_url}?doc_type=0"%>
+  </li>
+  <li>
+    <%= link_to "toolkit", "#{admin_documents_url}?doc_type=20"%>
+  </li>
+</ul>
+
+<% @documents.each do |document| %>
+
+      <!-- <p>ID: <%= document.temp_id %></p> -->
+      <h1><%= raw document.headline %></h1>
+      <h2><%= raw document.subtitle %></h2>
+	  <%= link_to "Edit this document", edit_admin_document_path(document) %>
+      <%= link_to "Delete this document", admin_document_path(document), method: :delete %>
+      <div class="hrbreake7e6e7">&nbsp;</div>
+<% end %>

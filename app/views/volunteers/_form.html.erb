@@ -1,0 +1,50 @@
+<h1><%= t('volunteer') %></h1>
+  <%= t('volunteer_heading', :riding_name => (current_user.nil? ? '' : current_user.riding_name)) %>
+<p>
+  <%= t('volunteer_second_paragraph') %>
+</p>
+
+<div class="et-wrapper steps">
+  <div id="step1" class="et-page step">
+    <h2>Skills Survey</h2>
+    <p>Campaigns will always need people to canvass and work the phones, but it doesn’t end there. If
+      you’re interested in dedicating your special talents to a good cause you can start by letting
+      us know what you’re good at - we may have some special projects for you to consider.</p>
+    <%= render 'simple' %>
+  </div>
+  <div id="step2" class="et-page step">
+    <% if current_user.nil? %>
+        <h1 class="pagetitle">Volunteer </h1>
+        <p>Campaigns are successful because of the volunteers like you. Login if you have an account or simply
+          fill in the form below and watch your inbox to activate your account. Creating an account allows you
+          to update your volunteer profile and receive credit for online activities.</p>
+        <%= render 'users/registrations/form', user: current_user %>
+    <% else %>
+        <h1 class="pagetitle">Volunteer</h1>
+        <h2 class="subtitle">Your Skills Profile</h2>
+        <p><strong>IF EMAIL_UNAUTHENTICATED: Check your inbox and confirm your email</strong>. Campaigns will always need people to canvass and work the phones, but it doesn’t
+          end there. If you’re interested in dedicating your special talents to a good cause
+          you can start by letting us know what you’re good at - we may have some special
+          projects for you to consider.</p>
+        <%= render partial: 'registered' %>
+    <% end %>
+  </div>
+  <div id="step3" class="et-page step">
+    <%= render partial: 'extended' %>
+  </div>
+</div>
+
+<div style="display:block; clear:both;"></div>
+
+<script>
+    $('.step').hide();
+    //determine the step at which the user should be placed
+    <% if current_user.nil? %>
+        //we are obviously at step1 because you cannot be a volunteer yet
+        $('#step1').show();
+    <% elsif current_user.volunteer.nil? %>
+        $('#step1').show();
+    <% else %>
+        $('#step3').show();
+    <% end %>
+</script>

@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Ontario Liberal Toolkit</title>
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <meta name="keywords" content="Ontario Liberal Toolkit" />
+    <meta name="description" content="Here you’ll find information about donation limits and tax credit information as well as checklists, cost calculation forms, generic donation forms and GST tracking forms in Excel" />
+    <meta property="og:title" content="Ontario Liberal Toolkit" />
+    <meta property="og:type" content="politician" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="Ontario Liberal Toolkit" />
+    <meta property="fb:admins" content="100003812622252,686700080,552055122" />
+    <meta property="og:description" content="Here are all the forms and documents you will need" />
+
+
+    <%= stylesheet_link_tag "admin_application", :media => "all" %>
+    <%= javascript_include_tag "admin_application" %>
+    <%= csrf_meta_tags %>
+	
+    <script>
+
+      $(function (){ $(".float").each(function () { 
+           var $this = $(this); $this.data("startTop", $this.offset().top);});
+             $(window).scroll(function () { var documentScrollTop = $(document).scrollTop();
+             $(".float").each(function () { var $this = $(this); 
+             $this.offset({ top: $this.data("startTop") + documentScrollTop * $this.data("friction"), left: $this.offset().left });
+      });
+      document.oldScrollTop = documentScrollTop; });
+      });
+  	
+      // Get rid of empty paragraphs
+      $(window).load(function(){
+          $('p').filter(function () { return this.innerHTML == "" }).remove();
+      });//]]> 
+	
+    </script>	
+      
+    <%= yield :header %>
+      
+    <style type="text/css">
+
+      /* Sample pallete  */
+
+      /* e5e5e5   warmwhite  */
+      /* f84241   lightred  */
+      /* d43839   dark red  */
+      /* 494949  textgrey  */
+      /* 6b6b6b  darkergrey */
+      /* warm white #f0ecec            */
+      /* portrait bg clr #d7e6f4  */
+      /* new portrait bg #e8eae5 */
+      @font-face {
+        font-family: 'Oswald';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Oswald Regular'), local('Oswald-Regular'), font-url('Oswald400.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Oswald';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Oswald Bold'), local('Oswald-Bold'), font-url('Oswald700.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Droid Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Droid Sans'), local('DroidSans'), font-url('DroidSans400.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Droid Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Droid Sans Bold'), local('DroidSans-Bold'), font-url('DroidSans700.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'League Gothic';
+        font-style: normal;
+        font-weight: 400;
+        src: local('League Gothic'), local('LeagueGothic400'), font-url('LeagueGothic400.woff') format('woff');
+      }
+
+
+      @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), font-url('RobotoCondensed300.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Roboto Condensed Regular'), local('RobotoCondensed-Regular'), font-url('RobotoCondensed400.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), font-url('RobotoCondensed700.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto Condensed';
+        font-style: italic;
+        font-weight: 300;
+        src: local('Roboto Condensed Light Italic'), local('RobotoCondensed-LightItalic'), font-url('RobotoCondensedItalic300.woff') format('woff');
+      }
+      *,html {padding:0px; margin:0px;}
+      ul,ol {margin-left:30px;}
+      a:link,
+      a:visited {text-decoration:none;}
+      a:hover {text-decoration:underline;}
+
+img.grayscale {
+    filter: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale');
+}
+      body { 
+         padding:0px; 
+         margin:0px; 
+         font-size:16px; 
+         font-family: 'Droid Sans', sans-serif; 
+         background-color:#e5e5e5; 
+         margin:0px; 
+         padding:0px; 
+         }
+         
+      .grey a:link,
+      .grey a:visited,
+      .grey a:hover,
+      .grey { color: #6b6b6b; }
+
+
+      .red a:link,
+      .red a:visited,
+      .red a:hover,
+      .red { color: #d30000; }
+      .listh1 { font-size:22px; line-height:22px;}
+      .listh2 { font-size:20px; line-height:20px;}
+      h1,h2,h3,h4,h5,h6 { 
+          font-weight:400;
+          font-family: 'Oswald', sans-serif;
+          margin:0px;
+          padding:0px;
+          }
+      p {line-height:18px;}
+      h1 { font-size:36px; line-height:34px;}
+      h2,h3{ font-size:28px; line-height:34px;}
+
+      p + .tiny {line-height:0px;margin-bottom:-20px;padding:0px;}
+      p + p {padding-top:20px;}
+	  p + .hrbreake7e6e7 {margin-top:-10px;}
+	  .hrbreake7e6e7 + .listh1 {padding-top:10px;}
+      h1 + p {padding-top:10px;}
+      .listh2 + p {margin-top:6px;}
+
+      #header { 
+		 width:100%; 
+		  min-height:356px; 
+		  height:462px;
+          background: url("toolkitheader.jpg") center -8px;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+		  } 
+      .toolkitmenu {
+	      font-family: "Oswald", sans serif;
+		  color:white;
+          width:100%;
+          min-height:60px;
+          padding-top:7px;}
+	 .toolkitmenu > a, 
+	 .toolkitmenu > a:visited,
+	 .toolkitmenu > a:active
+		  {color:white;}
+	 /* Adding white pipe */
+	 .toolkitmenitem {border-right:solid 1px white; padding-right:8px;padding-left:3px;}
+	 /* Removing pipe from last child */
+	 .toolkitmenitem:last-child {border-right:none;}	  
+	  
+	  
+      .toolkittitle { min-height:79px;
+          background: url("toolkit_logo.png") no-repeat;
+          position:relative; top:90px; padding-bottom:0px; min-height:200px;}
+      .toolkittag {margin-top:2px; font-size:27px; color:#6b6b6b; line-height:27px; text-shadow: 0px 1px 2px rgba(150, 150, 150, 1);}
+
+	  
+      .containerbg {
+          background-color:#fff;
+          width:100%;
+          padding-top:40px;
+		  min-height:600px;
+          -moz-box-shadow: inset 0 8px 8px -8px #696868,
+          inset 0 -8px 8px -8px #696868;
+          -webkit-box-shadow: inset 0 8px 8px -8px #696868,
+          inset 0 -8px 8px -8px #696868;
+          box-shadow: inset 0 8px 8px -8px #696868,
+          inset 0 -8px 8px -8px #696868;
+
+          
+
+      }
+
+      .tiny,
+      .legal {
+          line-height: 13px;
+          text-shadow: none;
+          margin: 10px 0px 0px;
+          padding: 0px;
+          border: 0px none;
+          outline: 0px none;
+          font-size: 10px;
+          vertical-align: baseline;
+          font-family: "HelveticaNeue","Helvetica Neue","HelveticaNeueRoman","HelveticaNeue-Roman","Helvetica Neue Roman",'TeXGyreHerosRegular',"Helvetica","Tahoma","Geneva","Arial",sans-serif;
+          font-weight: 400;
+          display:inline;
+      }
+
+
+	.container {max-width:960px; margin-left:auto; margin-right:auto; width:85%}
+	.maincontent {min-height:500px;}
+
+
+
+      #float-2 { 
+	      top: 700px; 
+		  width:100%; 
+		  min-height:600px; 
+		  background: cover; 
+		  background-image: url("bg_bottomopening.jpg");
+		  background-color:#c7c0ba; 
+		  -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+		  background-repeat:no-repeat;
+		  }
+
+      #float-3 { top: 2250px; width:100%; } 
+
+      .content { position: relative; z-index: 2; }
+
+
+      .hrbreake7e6e7 {
+          background-image: url('hr_e7e6e7.gif');
+          background-repeat: repeat-x;
+          background-position: left center;
+          width:100%;
+          min-height:6px;
+          display:block;
+          clear:both;
+      }
+.pdf,.doc,.docx,.xls,.xlsx,.ppt,.zip {
+          background-repeat: no-repeat;
+          background-position: left top;
+		  padding:3px;
+		  padding-left:43px;
+		  min-height:120px;
+		  width:32.5%;
+		  margin-top:10px;
+		  float:left;
+}
+.pdf > h1,.doc > h1,.docx > h1,.xls > h1,.xlsx > h1,.ppt > h1,.zip > h1 { font-size:15px; line-height:15px; margin:0px; font-family: 'Droid sans', sans serif; }
+.pdf > p,.doc > p,.docx > p,.xls > p,.xlsx > p,.ppt > p,.zip > p { font-size:13px; line-height:12px; margin-top:-10px; }
+.pdf { background-image: url('pdf.png');}
+.doc { background-image: url('doc.png');}
+.docx { background-image: url('doc.png');}
+.xls { background-image: url('xlsx.png');}
+.xlsx { background-image: url('xlsx.png');}
+.ppt { background-image: url('ppt.png');}
+.zip { background-image: url('zip.png');}
+
+.pageimageholder{
+   margin-top:30px; 
+   background-color:white; 
+   min-width:100%; 
+   padding-bottom:30px; 
+   box-shadow: 0px 9px 10px -9px #AAADB1 inset;}
+#threeupcontainer {
+  width: 100%;
+  font-size: 12px;
+  overflow: hidden;
+  /* contain floated elements */
+  text-align: center;
+  width: 750px;
+  margin: 0 auto;
+  padding-top: 57px; }
+
+#threeupcontainer > div {
+  float: left;
+  width: 33%;
+  padding-top: 135px;}
+  
+#widgetholderleft {
+  background: url("bicon_cfo.png");
+  background-repeat: no-repeat;
+  background-position: center top; }
+
+#widgetholdercenter {
+  background: url("bicon_lit.png");
+  background-repeat: no-repeat;
+  background-position: center top; }
+
+#widgetholderright {
+  background: url("bicon_contact.png");
+  background-repeat: no-repeat;
+  background-position: center top; }
+
+.widgeth {
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #df0421;
+  letter-spacing: 1px; }
+
+.widgetsub {
+  text-align: center;
+  font-size: 12px;
+  color: #595959;
+  letter-spacing: .5px; }
+
+.footer { color:#fff; background-color:#6b6b6b; box-shadow: 0px 9px 10px -9px #AAADB1 inset; width:100%; }
+
+@media all and (max-width: 700px) {
+      .container {padding-left:20px; padding-right:20px; width:80%}
+      .toolkittitle {margin-top:40px; margin-bottom:0px; padding-bottom:0px; font-size:48px; text-shadow: 0px 3px 2px rgba(150, 150, 150, 1);}
+	  #float-1 { top: 23px; right:50%; margin-right:-995px;} 
+
+      .pdf,.doc,.docx,.xls,.xlsx,.ppt,.zip {
+          background-repeat: no-repeat;
+          background-position: left top;
+		  padding:3px;
+		  padding-left:43px;
+		  min-height:80px;
+		  width:100%;
+		  margin-top:10px;
+		  display:block;
+           }
+}
+    </style>
+  </head>
+  <body>
+
+
+  <div id="header">
+    <div class="container">
+			<div class="toolkitmenu">
+			<%= render "shared/toolkit_menu" %>
+            </div>
+	
+	  <div class="toolkittitle">&nbsp;</div>
+	  <div style="clear:both; display:block;">&nbsp;</div> 
+    </div>
+  </div><!-- close header -->
+  
+	   <div style="clear:both; display:block;">&nbsp;</div>  
+  
+			
+  </div><!-- close container -->
+  
+	      <div style="clear:both; display:block;">&nbsp;</div>
+
+
+	  <div class="maincontent">
+       <%= yield %>
+	  </div> 
+
+	
+	   <div style="clear:both; display:block;">&nbsp;</div>
+	
+
+	
+	
+<div class="footer">
+  <div class="container"><!--  this will set the content margins left and right -->
+    <div class="centerclass" style="padding-top:30px; min-height:50px;">
+	  <p class="tiny">The toolkit website, including the documents and web pages contained herein, contain 
+	  confidential and proprietary information that is intended for the exclusive use of authorized members 
+	  of the Ontario Liberal Party. Unauthorized use of this site is not permitted. Unauthorized access and 
+	  dissemination of this information is an indictable offence under Section 342.1 of the Criminal Code of 
+	  Canada.</p><br>
+      <p class="tiny">Ontario Liberal Party - 
+
+      <p class="tiny">Address: 10 St. Mary Street, Suite 210, Toronto, Ontario, M4Y 1P9</p>
+
+      <p class="tiny">Phone: 416-961-3800</p>
+
+      <p class="tiny">Toll Free Phone: 1-800-268-7250</p>
+
+      <p class="tiny">Fax: 416-323-9425</p>
+
+      <p class="tiny grey">Copyright &copy; 2014 Ontario Liberal Party</p></div>
+	  <br><br><br><br><br><br>
+  </div><!-- close container -->
+</div><!-- close footer -->
+
+      <%= yield :scripts_for_body %>
+  </body>
+</html>

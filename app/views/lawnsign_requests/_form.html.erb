@@ -1,0 +1,21 @@
+<div class="et-wrapper steps">
+      <div id="step1" class="et-page step">
+        <%= simple_form_for@lawnsign_request, html: { id: 'new_lawnsign_form', class: 'form-horizontal' } do |f| %>
+            <%= f.collection_radio_buttons :sign_size_large, [[true, t(:large)], [false, t(:normal)]], :first, :last, :class => 'lawnsign_radiobutton' %>
+            <p>
+              <%= t(:lawnsign_instructions) %>
+            </p>
+            <%= f.input :message, :rows => 10, :cols => 50, input_html: { class: 'lawnsign_textarea tinymce' } %>
+            <br/>
+            <%= f.button :submit, id: 'lawnsign_submit', value: 'We need some more information to complete your application' %>
+        <% end %>
+      </div>
+    <div id="step2" class="et-page step unauthenticated">
+      <%= render 'users/registrations/form', user: current_user %>
+    </div>
+    <div id="step3" class="et-page step">
+      <p>Thank you for applying for a lawnsign</p>
+    </div>
+</div>
+
+<%= tinymce %>
